@@ -16,15 +16,18 @@ Prerequisites are:
 Node.js (version 14 or later)
 npm (Node package manager)
 1.The profile of the admin can be visited which has the features of updating the email,mobile and password of the admin.
+
 2. User Page (User.jsx):
 The User.js component displays a table with all the existing users.
 Clicking on any row allows you to view and edit the user details.
 You can also delete a user from this page.
-3. Create/Update User Page (NewUser.jsx):
+
+4. Create/Update User Page (NewUser.jsx):
 The NewUser.jsx component contains a form for creating new users and editing existing users.
 If you are editing an existing user, their information will be pre-filled into the form, and you can make changes then when the refresh takes place then the Create New User form appears on the UI after Updating or submitting the changes
 On submission, either a new user is added or an existing user is updated, depending on whether selectedUser is passed to the component.
-4. Roles Page(RolesTable.jsx)
+
+5. Roles Page(RolesTable.jsx)
 where the Status of each role is visible.
 The role and the status can be updated or deleted.
 Similarly The permissions of every role can be added/edited/deleted.
