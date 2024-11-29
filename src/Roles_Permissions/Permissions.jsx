@@ -36,4 +36,3 @@ Permissions.propTypes = {
 };
 
 export default Permissions;
-
