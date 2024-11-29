@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Permissions({ permissions = [], onPermissionChange }) {
-  const allPermissions = ['Read', 'Write', 'Edit']; // Example permissions list
+  const allPermissions = ['Read', 'Write', 'Edit']; 
 
   const handlePermissionToggle = (permission) => {
     if (permissions.includes(permission)) {
