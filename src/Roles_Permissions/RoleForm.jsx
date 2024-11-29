@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Permissions from './Permissions';
+import Permissions from '../Roles_permissions/Permissions';
 
 function RoleForm({ addRole, editingRole, updateRole }) {
   const [roleFormData, setRoleFormData] = useState({
