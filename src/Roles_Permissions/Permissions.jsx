@@ -1,46 +1,39 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
-function Permissions({ permissions, onPermissionChange }) {
+function Permissions({ permissions = [], onPermissionChange }) {
+  const allPermissions = ['Read', 'Write', 'Edit']; // Example permissions list
+
   const handlePermissionToggle = (permission) => {
-    const updatedPermissions = permissions.includes(permission)
-      ? permissions.filter((perm) => perm !== permission)
-      : [...permissions, permission];
-    onPermissionChange(updatedPermissions);
+    if (permissions.includes(permission)) {
+      onPermissionChange(permissions.filter((p) => p !== permission));
+    } else {
+      onPermissionChange([...permissions, permission]);
+    }
   };
 
   return (
     <div className="mb-4">
-      <label className="block text-sm font-medium text-gray-700">Permissions</label>
-      <div className="mt-3">
-        <label>
+      <h3 className="text-sm font-medium text-gray-700 mb-2">Permissions</h3>
+      {allPermissions.map((permission) => (
+        <label key={permission} className="flex items-center space-x-2 mb-2">
           <input
             type="checkbox"
-            checked={permissions.includes('View')}
-            onChange={() => handlePermissionToggle('View')}
+            checked={permissions.includes(permission)}
+            onChange={() => handlePermissionToggle(permission)}
+            className="text-indigo-600 focus:ring-indigo-500"
           />
-          View
+          <span>{permission}</span>
         </label>
-        <label className="ml-6">
-          <input
-            type="checkbox"
-            checked={permissions.includes('Edit')}
-            onChange={() => handlePermissionToggle('Edit')}
-         
-          />
-          Edit
-        </label>
-        <label className="ml-6">
-          <input
-            type="checkbox"
-            checked={permissions.includes('Delete')}
-            onChange={() => handlePermissionToggle('Delete')}
-          />
-          Delete
-        </label>
-      </div>
+      ))}
     </div>
   );
 }
 
+Permissions.propTypes = {
+  permissions: PropTypes.array.isRequired,
+  onPermissionChange: PropTypes.func.isRequired,
+};
+
 export default Permissions;
+
