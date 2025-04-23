@@ -1,7 +1,14 @@
 import React from 'react';
-import { Area, AreaChart, CartesianGrid, Tooltip, XAxis } from 'recharts';
+import {
+    AreaChart,
+    Area,
+    XAxis,
+    CartesianGrid,
+    Tooltip,
+    ResponsiveContainer,
+} from 'recharts';
 
-// Data for the chart
+// Chart data
 const data = [
     { name: 'January', total: 700 },
     { name: 'February', total: 1250 },
@@ -17,18 +24,16 @@ const data = [
     { name: 'December', total: 1250 },
 ];
 
-function Chart({ height, title }) {
+function Chart({ height = 300, title }) {
     return (
-        <div className="grid w-[60%] box-border">
-            <div>
-                <div className="text-gray-500 text-lg pb-4">
-                    <p>{title} (Last 1 year)</p>
-                </div>
+        <div className="w-full sm:w-[90%] md:w-[80%] lg:w-[60%] mx-auto box-border p-4">
+            <div className="text-gray-500 text-base sm:text-lg pb-4">
+                <p>{title} (Last 1 year)</p>
+            </div>
 
-                <div style={{ width: '100%', height: 300 }}>
+            <div className="w-full h-[250px] sm:h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
                     <AreaChart
-                        width={850}
-                        height={height}
                         data={data}
                         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}
                     >
@@ -49,7 +54,7 @@ function Chart({ height, title }) {
                             fill="url(#totals)"
                         />
                     </AreaChart>
-                </div>
+                </ResponsiveContainer>
             </div>
         </div>
     );
