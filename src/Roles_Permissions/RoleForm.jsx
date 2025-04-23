@@ -115,4 +115,3 @@ function RoleForm({ addRole, editingRole = null, updateRole }) {
 }
 
 export default RoleForm;
-
