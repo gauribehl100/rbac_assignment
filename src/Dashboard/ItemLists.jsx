@@ -26,7 +26,7 @@ function ItemLists({ type }) {
                     />
                 ),
                 link: 'See all users',
-                linkto: '/users',
+                
             };
             break;
         case 'orders':
@@ -44,7 +44,7 @@ function ItemLists({ type }) {
                     />
                 ),
                 link: 'View all orders',
-                linkto: '/orders',
+                
             };
             break;
         case 'products':
@@ -62,7 +62,7 @@ function ItemLists({ type }) {
                     />
                 ),
                 link: 'See all products',
-                linkto: '/products',
+               
             };
             break;
         case 'balance':
@@ -80,7 +80,7 @@ function ItemLists({ type }) {
                     />
                 ),
                 link: 'See all details',
-                linkto: '/',
+               
             };
             break;
             case 'revenue':
@@ -98,7 +98,7 @@ function ItemLists({ type }) {
                     />
                 ),
                 link: 'See the Revenue Details',
-                linkto: '/',
+               
             };
             break;
         default:
@@ -106,7 +106,7 @@ function ItemLists({ type }) {
     }
 
     return (
-        <div className="flex flex-col justify-between p-4 rounded-lg bg-white shadow-md">
+        <div className="flex flex-col justify-between p-4 rounded-lg bg-white shadow-md w-64">
             <div className="flex justify-between items-center">
                 <p className="text-gray-500">{data.title}</p>
                 <span
@@ -138,3 +138,4 @@ function ItemLists({ type }) {
 }
 
 export default ItemLists;
+
