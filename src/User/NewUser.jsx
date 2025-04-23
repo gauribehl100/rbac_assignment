@@ -4,7 +4,6 @@ function NewUser({ selectedUser, addUser, updateUser }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
     mobile: '',
     role: '',
     type: '',
@@ -17,10 +16,10 @@ function NewUser({ selectedUser, addUser, updateUser }) {
       setFormData({
         name: selectedUser.name || '',
         email: selectedUser.email || '',
-        password: selectedUser.password || '',
         mobile: selectedUser.mobile || '',
         role: selectedUser.role || '',
         type: selectedUser.type || '',
+        password: '',
       });
     }
    
@@ -40,8 +39,11 @@ function NewUser({ selectedUser, addUser, updateUser }) {
 
     if (!formData.name) newErrors.name = 'Name is required';
     if (!formData.email) newErrors.email = 'Email is required';
-    if (!formData.password) newErrors.password = 'Password is required';
+    if (!formData.mobile) newErrors.mobile = 'Mobile is required';
+    if (!formData.role) newErrors.role = 'Role is required';
+    // if (!formData.password) newErrors.password = 'Password is required';
     if (!formData.type) newErrors.type = 'User type is required';
+  
 
     setErrors(newErrors);
 
@@ -52,7 +54,6 @@ function NewUser({ selectedUser, addUser, updateUser }) {
         setFormData({
           name: '',
           email: '',
-          password: '',
           mobile: '',
           role: '',
           type: '',
@@ -65,7 +66,6 @@ function NewUser({ selectedUser, addUser, updateUser }) {
       setFormData({
         name: '',
         email: '',
-        password: '',
         mobile: '',
         role: '',
         type: '',
@@ -106,20 +106,23 @@ function NewUser({ selectedUser, addUser, updateUser }) {
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
-
-        {/* Password */}
-        <div className="mb-4">
-          <label className="block text-gray-700">Password</label>
+         {/* mobile */}
+         <div className="mb-4">
+          <label className="block text-gray-700">Mobile</label>
           <input
-            type="password"
-            name="password"
-            value={formData.password}
+            type="text"
+            inputMode="numeric"  
+            pattern="[0-9]*" 
+            name="mobile"
+            value={formData.mobile}
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter password"
+            placeholder="Enter Mobile"
           />
-          {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
+          {errors.mobile && <p className="text-red-500 text-sm">{errors.mobile}</p>}
         </div>
+
+
 
         {/* Role */}
         <div className="mb-4">
@@ -152,10 +155,10 @@ function NewUser({ selectedUser, addUser, updateUser }) {
           {errors.type && <p className="text-red-500 text-sm">{errors.type}</p>}
         </div>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md"
+            className="w-full bg-blue-500 text-white py-2 px-4 rounded-md mb-3"
           >
             {selectedUser ? 'Update User' : 'Create User'}
           </button>
