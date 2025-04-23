@@ -1,3 +1,4 @@
+
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
@@ -15,14 +16,14 @@ function ProgressBar() {
     ];
 
     return (
-        <div className="flex flex-col p-6 shadow-lg rounded-lg bg-white w-[50%]">
+        <div className="flex flex-col p-4 sm:p-6 shadow-lg rounded-lg bg-white w-full sm:w-[90%] md:w-[70%] lg:w-[50%] mx-auto">
             <div className="flex items-center justify-between text-gray-500">
-                <p className="text-lg font-medium">Total Revenue</p>
+                <p className="text-base sm:text-lg font-medium">Total Revenue</p>
                 <MoreVertOutlinedIcon />
             </div>
 
             <div className="mt-6 text-center">
-                <div className="h-64 w-64 mx-auto">
+                <div className="w-full max-w-[250px] h-[250px] mx-auto">
                     <ResponsiveContainer width="100%" height="100%">
                         <PieChart>
                             <Pie
@@ -48,17 +49,17 @@ function ProgressBar() {
 
             <div className="mt-6 text-gray-500">
                 <p>Previous transactions processing. Last payments may not be included.</p>
-                <div className="mt-6 flex justify-between">
+                <div className="mt-6 flex flex-col sm:flex-row justify-between gap-4 sm:gap-0">
                     <div className="text-center">
                         <p className="text-sm">Last Week</p>
-                        <p className="text-green-600 flex items-center text-lg font-medium mt-2">
+                        <p className="text-green-600 flex items-center justify-center text-lg font-medium mt-2">
                             <KeyboardArrowUpOutlinedIcon />
                             $11.9k
                         </p>
                     </div>
                     <div className="text-center">
                         <p className="text-sm">Last Month</p>
-                        <p className="text-red-600 flex items-center text-lg font-medium mt-2">
+                        <p className="text-red-600 flex items-center justify-center text-lg font-medium mt-2">
                             <KeyboardArrowUpOutlinedIcon />
                             $12.4k
                         </p>
